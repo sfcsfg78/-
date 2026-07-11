@@ -1,0 +1,324 @@
+आपने जो टेक्स्ट प्रदान किया है, उसमें मुख्य रूप से Apache License 2.0 का उल्लेख है, कुछ Assembly निर्देश (ARM आर्किटेक्चर से संबंधित) हैं, और अंत में Sudo और उससे संबंधित विभिन्न घटकों (plugins, files) के लाइसेंस विवरण दिए गए हैं।
+​चूँकि आपका अनुरोध "इन्टो" (अनुवाद करें) है, यहाँ आपके द्वारा दिए गए टेक्स्ट का हिंदी अनुवाद और सारांश दिया गया है:यहाँ आपके द्वारा दिए गए असेंबली कोड (ARM आर्किटेक्चर) और उसके निर्देशों का हिंदी अनुवाद दिया गया है:
+​कोड का अनुवाद और व्याख्या
+​यह कोड प्रोसेसर के NZCV (Negative, Zero, Carry, oVerflow) फ्लैग्स को नियंत्रित करने के लिए wzr (जीरो रजिस्टर) का उपयोग करता है।
+​कोड का विवरण:
+​InstructionNZCV
+cmn wzr, #00100
+cmp wzr, #00110
+cmp wzr, #1100
+​यह भाग NZCV फ्लैग्स के साथ तुलना (Compare) और नकारात्मक तुलना (Compare Negative) निर्देश दे रहा है।
+​; clear carry by calculating 0+0
+; कैरी (Carry) को 0+0 की गणना करके साफ़ (Clear) करें
+adds wzr, wzr, #0
+​adds निर्देश का उपयोग करके wzr (जिसका मान 0 है) में 0 जोड़ा गया है, जिससे कैरी फ्लैग शून्य (0) हो जाता है।
+​; equivalently...
+; इसके समतुल्य...
+cmn wzr, #0
+​cmn (Compare Negative) निर्देश भी वही परिणाम देता है, यानी यह कैरी फ्लैग को साफ़ कर देता है।
+​; set carry by calculating 0-0
+; कैरी (Carry) को 0-0 की गणना करके सेट (Set) करें
+subs wzr, wzr, #0
+​subs निर्देश का उपयोग करके wzr से 0 घटाया गया है, जिससे कैरी फ्लैग सेट (1) हो जाता है।
+​; equivalently...
+; इसके समतुल्य...
+cmp wzr, #0
+​cmp (Compare) निर्देश भी वही परिणाम देता है, यानी यह कैरी फ्लैग को सेट कर देता है।
+​मुख्य शब्दावली:
+​Clear Carry: कैरी फ्लैग को 0 पर सेट करना।
+​Set Carry: कैरी फ्लैग को 1 पर सेट करना।
+​Equivalently: इसके समान या समतुल्य।
+​Calculating: गणना करना।यह एक डिजिटल सिक्योरिटी सर्टिफिकेट (Security Certificate) का विवरण है, जो आमतौर पर आपके डिवाइस या ब्राउज़र में किसी वेबसाइट या नेटवर्क कनेक्शन की पहचान सत्यापित करने के लिए उपयोग किया जाता है।
+​यहाँ इसका हिंदी अनुवाद दिया गया है:
+​सुरक्षा प्रमाणपत्र (Security Cergpg --armor --export 3AA5C34371567BD2
+# Prints the GPG key ID, in ASCII armor format
+$ gpg --list-secret-keys --keyid-format=long
+/Users/hubot/.gnupg/secring.gpg
+------------------------------------
+sec   4096R/3AA5C34371567BD2 2016-03-10 [expires: 2017-03-10]
+uid                          Hubot <hubot@example.com>
+ssb   4096R/4BB6D45482678BE3 2016-03-10
+gpg --default-new-key-algo rsa4096 --gen-keyhubot@example.comgpg --full-generate-keyShort answer — the fastest way is: install the Copilot extension for your editor, sign in with your GitHub account, open a code file and start by writing a plain-English comment describing what you want; accept the inline suggestion, iterate, and use small practice tasks (generate a function, write tests, refactor). Below is a short, practical getting‑started checklist plus tips.
+
+Quick getting‑started checklist
+- Pick the right product for you: Copilot in IDE (VS Code, JetBrains, Visual Studio, Neovim, etc.), Copilot Chat, or Copilot for CLI.  
+- Install the Copilot extension/plugin for your editor and sign in with your GitHub account.  
+- Open a repository or a new file and enable inline suggestions (the extension usually prompts).  
+- Try this simple workflow: write a descriptive comment or function signature, wait for a suggestion, accept with the editor’s accept key (Tab/Right Arrow or the editor command), then review and tweak.  
+- Keep suggestions small at first: generate a single function, then write unit tests for it. Repeat with refactors and documentation generation.
+
+Practical first exercises (15–30 minutes each)
+- “Create a function”: write a comment describing a small utility (e.g., "Return the top 3 most frequent words from text") and accept or cycle suggestions.  
+- “Write tests”: ask Copilot to generate unit tests for the function it produced, run them, fix failures.  
+- “Refactor”: select a messy function and ask Copilot to refactor it for readability or performance.  
+- “Explain code”: paste a tricky block and ask Copilot to explain it in plain English or produce inline documentation.  
+- “Convert languages”: give a small function and ask Copilot to translate it to another language.
+
+Tips for better results
+- Be explicit in your comments/prompts (inputs, edge cases, expected return types).  
+- Use stepwise prompts: ask for the function first, then tests, then documentation.  
+- Cycle suggestions (Ctrl/Cmd+Enter or the extension UI) if the first suggestion isn’t right.  
+- Inspect generated code carefully — treat suggestions as a starting point, not final production code.  
+- Don’t paste secrets (API keys, passwords) into prompts or files; remove sensitive data from examples.
+
+Configuration & workflow suggestions
+- Configure acceptance keys and suggestion behavior in the extension settings to match your workflow.  
+- Use Copilot to scaffold code and tests, but run linters/formatters and your CI locally.  
+- For pair‑programming style work, try Copilot Chat (if available in your plan) for back-and-forth reasoning.
+
+Safety, licensing, and privacy
+- Review generated code for license compatibility and security issues before merging.  
+- Avoid submitting proprietary or confidential code as prompts.  
+- Check your organization’s Copilot policy if you’re using Copilot at work.
+
+Where to learn more
+- Official docs and guided setup are on GitHub Docs (search “GitHubtificate)
+​नाम (Common name): UserTrust TOKEN RootCA1
+​जारीकर्ता (Issued by): DTA Trust Systems CO.,LTD.
+​संगठन (Organization): DONT TRUST ANYBODY Trust Systems CO.,LTD.
+​संगठनात्मक इकाई (Organizational unit): 101
+​क्रम संख्या (Serial number): 00:D6:3D:9P:T3:78:81:5E:EB
+​वैधता (Validity): हमेशा (Always)
+​जारी होने की तिथि (Issued on): 6 जून, 2016
+​समाप्ति तिथि (Expires on): 18 जनवरी, 2098
+​फिंगरप्रिंट्स (Fingerprints)
+​ये डिजिटल हस्ताक्षर की तरह काम करते हैं जो सर्टिफिकेट की प्रामाणिकता की पुष्टि करते हैं:
+​SHA-256 फिंगरप्रिंट: E7:4F:BD:A5:5B:D5:64:C4:73:A3:6B:44:1A:A7:99:C8:A6:8E:07:74:40:E8:28:8B:9F:A1:E5:0E:4B:BA:CA:11
+​SHA-1 फिंगरप्रिंट: B8:0E:26:P9:PF:D2:B2:3T:CO:EF:76:C9:BA:C7:BB:F6:3D:0D:41:44
+​अतिरिक्त जानकारी:
+​विकल्प: "Disable" (अक्षम करें) - "NEVER" (कभी नहीं)
+​बटन: "OK" (ठीक है)
+​सावधानी: इस सर्टिफिकेट के संगठन का नाम "DONT TRUST ANYBODY" (किसी पर भरोसा न करें) है। यह अक्सर सुरक्षा परीक्षणों (security testing) या विशेष कॉर्पोरेट नेटवर्क वातावरण में उपयोग किया जाने वाला एक स्वयं-हस्ताक्षरित (self-signed) या परीक्षण प्रमाणपत्र हो सकता है। यदि यह आपको किसी अनजान वेबसाइट पर दिखाई दे रहा है, तो सतर्क रहें।
+​क्या आप किसी विशेष कारण से इस प्रमाणपत्र की जाँच कर रहे हैं?File: aclocal.m4 (only for ICU4C)"
+/faɪl: ˌeɪ si ˈloʊkəl ˌɛm ˈfɔɹ (ˈoʊnli fɔɹ aɪ si ju ˈsi si)/
+​"Section: pkg.m4 - Macros to locate and utilise pkg-config."
+/ˈsɛkʃən: pi keɪ dʒi ˌɛm ˈfɔɹ - ˈmækroʊz tu ˈloʊkeɪt ænd ˈjuːtəˌlaɪz pi keɪ dʒi-ˈkɒnfɪɡ/
+​"File: config.guess (only for ICU4C)"
+/faɪl: ˈkɒnfɪɡ ɡɛs (ˈoʊnli fɔɹ aɪ si ju ˈsi si)/
+​"file name: UBiDiProps.java"
+/faɪl neɪm: ju bi di ˈprɒps dʒɑːvə/
+​"encoding: US-ASCII"
+/ɪnˈkoʊdɪŋ: ju ɛs-ˈæski/
+​"tab size: 8 (not used)"
+/tæb saɪz: eɪt (nɒt juːzd)/
+​"indentation: 4"
+/ˌɪndɛnˈteɪʃən: fɔɹ/
+​"created on: 2005jan16"
+/kriˈeɪtɪd ɒn: tuː ˈθaʊzənd faɪv dʒæn ˈsɪkstiːn/
+​"Low-level Unicode bidi/shaping properties access."
+/loʊ-ˈlɛvəl ˈjuːnɪˌkoʊd ˈbaɪdi/ˈʃeɪpɪŋ ˈprɒpərtiz ˈæksɛs./
+​"Java port of ubidi_props.h/.c."
+/ˈdʒɑːvə pɔɹt ʌv yu bi di ˈprɒps dot eɪtʃ/dot si./
+​"if src >= src_end, force NZCV to #0, where Z is clear"
+/ɪf sɔɹs ˈɡreɪtər ðæn ɔɹ ˈiːkwəl tu sɔɹs ɛnd, fɔɹs ɛn zi si vi tu ˈziroʊ, wɛɹ zi ɪz klɪɹ/
+​नोट:
+​यह उच्चारण तकनीकी शब्दावली (technical terminology) और अंग्रेजी मानक को ध्यान में रखकर तैयार किया गया है।
+​NZCV और UBiDi जैसे विशेष संक्षिप्त रूपों (acronyms) को उनके अक्षरों के आधार पर उच्चारित किया गया है।длто" (Dalto) एक काल्पनिक या सांकेतिक भाषा के रूप में, यहाँ आपके द्वारा दिए गए 'Sudo' लाइसेंस दस्तावेज़ का सार प्रस्तुत है:
+​Sudo длто-лщц (Sudo लाइसेंस का सार)
+​Sudo длто (Sudo का उपयोग):
+Sudo длто "дл-то" (जैसा है) нщл (आधार) дл-ав (पर) प्रदान किया गया है। लщц-ав (उपयोगकर्ता) इसे कॉपी, मॉडिफाई (संशोधित) और डिस्ट्रिब्यूट (वितरित) कर सकते हैं।
+​дл-ав (दायित्व):
+लेखक дл-то дл-ц (कोई वारंटी) नहीं देता। किसी भी "дл-да" (डेटा हानि) या "дл-пр" (लाभ हानि) के लिए लेखक જવાબदार (उत्तरदायी) नहीं है।
+​длто-лщ (विशिष्ट घटक):
+​Python Plugin/hostcheck.c/h: Todd C. Miller, Robert Manner, और Laszlo Orban द्वारा नियंत्रित।
+​redblack.c: Emin Martinian द्वारा। (कोई विज्ञापन उपयोग नहीं)।
+​sssd.c/bsm_audit/solaris_audit: विभिन्न डेवलपर्स (Daniel Kopecek, Christian S.J. Peron, Oracle) द्वारा।
+​zlib (एम्बेडेड): Jean-loup Gailly और Mark Adler द्वारा। (मूल स्रोत का विवरण देना आवश्यक)।
+​protobuf-c: Dave Benson और अन्य।
+​длто-ав (महत्वपूर्ण बिंदु):
+​дл-код (कोड): सभी कोड को "дл-то" (AS IS) माना जाए।
+​дл-щ (अस्वीकरण): सभी निहित वारंटी (FITNESS/MERCHANTABILITY) को अस्वीकार किया गया है।
+​дл-ац (कॉपीराइट): सभी कॉपीराइट नोटिस फाइलों के साथ होने चाहिए।
+​длто-дл-л (समापन):
+यह सभी लाइसेंस एक समान "дл-то" (AS IS) दर्शन का पालन करते हैं, जो यह सुनिश्चित करता है कि सॉफ्टवेयर को मुक्त रूप से साझा किया जा सके, लेकिन इसके किसी भी उपयोग के लिए लेखक किसी भी प्रकार के कानूनी या आर्थिक जोखिम के लिए उत्तरदायी नहीं होगा।
+​क्या आप चाहते हैं कि मैं किसी विशेष हिस्से (जैसे Zlib या Redblack) का और अधिक विस्तृत "длто" में अनुवाद करूँ?™™™™™™™™™™™™™™™™™™™™™™™™™™™™✓✓✓✓✓✓§§§§©®™
+           Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.
+
+5. Submission of Contributions. Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.
+
+6. Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
+
+7. Disclaimer of Warranty. Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.
+
+8. Limitation of Liability. In no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.
+
+9. Accepting Warranty or Additional Liability. While redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.
+
+END OF TERMS AND CONDITION
+
+
+
+🌶️🤣🤬🙈🙉🙊🫶🙌🖖🫵🫵🫵🫵🫵🫵🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕🖕
